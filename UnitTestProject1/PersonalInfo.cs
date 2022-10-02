@@ -21,7 +21,7 @@ namespace JollyHeisenberg
             this.FillSurname(surname);
             this.FillAddress(address);
             this.FillPhone(phone);
-            Click();
+            this.Click();
             
         }
 
