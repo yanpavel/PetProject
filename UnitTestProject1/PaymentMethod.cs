@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using Bogus;
-
+using System.Collections.Generic;
 
 namespace JollyHeisenberg
 {
@@ -17,16 +17,31 @@ namespace JollyHeisenberg
        
 
         
-        public void PaymentInfo(string number, string name, string date, string cvv)
+        public List<string> PaymentInfo(string number, string name, string date, string cvv)
         {
             this.NewPaymentMethod();
-            this.InputNumber(number);
-            this.InputName(name);
-            this.InputDate(date);
-            this.InputCVV(cvv);
+            Number = number;
+            this.InputNumber(Number);
+            Name = name;
+            this.InputName(Name);
+            Date = date;
+            this.InputDate(Date);
+            CVV = cvv;
+            this.InputCVV(CVV);
             this.Click();
+            List<string> uidata = new List<string>();
+            uidata.Add(Number);
+            uidata.Add(Name);
+            uidata.Add(Date);
+            uidata.Add(CVV);
+            return uidata;
         }
 
+        
+        public string Number { get; set; }
+        public string Name { get; set; }
+        public string Date { get; set; }
+        public string CVV { get; set; }
         private void Click()
         {
             driver.FindElement(By.XPath("//button[@type='button']")).Click();

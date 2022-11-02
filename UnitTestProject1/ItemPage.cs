@@ -27,10 +27,5 @@ namespace JollyHeisenberg
             
         }
 
-        public string GetItemName()
-        {
-            return driver.FindElement(By.XPath("/html/body/div/div/div/div/div/div/div/h1")).Text;
-        }
-
     }
 }

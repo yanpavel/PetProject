@@ -25,9 +25,5 @@ namespace JollyHeisenberg
             return new CartPage(driver);
         }
 
-        public string CartItemName()
-        {
-            return driver.FindElement(By.XPath("/html/body/div/div/div/div/div/div[1]/div/h6")).Text;
-        }
     }
 }

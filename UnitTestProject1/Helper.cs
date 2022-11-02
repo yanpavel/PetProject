@@ -13,6 +13,8 @@ namespace JollyHeisenberg
     public class Helper //contain objects
     {
         protected IWebDriver driver;
+        private string baseURL = "https://jolly-heisenberg-fc17f2.netlify.app/";
+
 
         private SignIn login;
         private MainPage main;

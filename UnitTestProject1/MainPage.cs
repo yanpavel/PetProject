@@ -33,6 +33,5 @@ namespace JollyHeisenberg
             return this;
         }
 
-
     }
 }

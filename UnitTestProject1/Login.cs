@@ -24,7 +24,6 @@ namespace JollyHeisenberg
             this.LoginButton();
         }
 
-        string loginUrl = "https://jolly-heisenberg-fc17f2.netlify.app/login";
         public void LoginButton()
         {
             driver.FindElement(By.XPath("//button[@type='submit']")).Click();
@@ -38,33 +37,14 @@ namespace JollyHeisenberg
 
         public void StartPage()
         {
-            if (IsLoggedIn())
-            {
-                this.LoginButton();
-            }
-            else
-                driver.Navigate().GoToUrl("https://jolly-heisenberg-fc17f2.netlify.app/login");
-        }
-        public bool IsLoggedIn()
-        {
-            return IsElementPresent(By.XPath("//*[@id='__layout']/div/div/div/button"));
-        }
-
-
-        public bool IsElementPresent(By by)
-        {
             try
             {
-                driver.FindElement(by);
-                return true;
+                driver.FindElement(By.XPath("//*[@id='__layout']/div/div/div/button")).Click();                
             }
-            catch (NoSuchElementException)
+            catch (Exception ex)
             {
-                return false;
-            }
+                driver.Navigate().GoToUrl("https://jolly-heisenberg-fc17f2.netlify.app");               
+            }            
         }
-
-        
-
     }
 }
